@@ -1,9 +1,11 @@
 const express = require('express');
+const routes = require('./routes');
+require('./database');
 
 const app = express();
+app.use(express.json());
+app.use(routes);
 
-app.get('/', (req, res) => {
-  res.send('Não é hello world');
-});
+app.listen(process.env.PORT || 3000);
 
-app.listen(3000);
+module.exports = app;

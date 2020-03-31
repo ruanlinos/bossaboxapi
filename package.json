@@ -6,35 +6,41 @@
   "author": "Ruan Linos Alves",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.20.13",
-    "pg": "^7.18.2"
+    "pg": "^8.0.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.5"
   },
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "mocha"
+    "test": "mocha",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:js:fix": "npm run lint:js -- --fix"
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.10",
-    "mocha": "^7.1.1",
     "nodemon": "^2.0.2",
     "prettier": "2.0.2",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "sequelize-cli": "^5.5.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint . --fix",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "*.js": [
-      "./node_modules/.bin/eslint — fix",
-      "git add"
-    ]
   }
 }
