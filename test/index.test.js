@@ -22,20 +22,6 @@ describe('Tools', () => {
     });
   });
 
-  describe('/PUT update tool', () => {
-    it('it should update a existing tool', (done) => {
-      chai
-        .request(server)
-        .put('/tools/1')
-        .send({ title: 'Updated' })
-        .then((res) => {
-          expect(res).to.have.status(204);
-          done();
-        });
-      done();
-    });
-  });
-
   describe('/POST create a new tool', () => {
     it('it should Post a new tool', (done) => {
       chai
@@ -58,6 +44,20 @@ describe('Tools', () => {
         })
         .end((err, res) => {
           expect(res).to.have.status(201);
+          done();
+        });
+      done();
+    });
+  });
+
+  describe('/PUT update tool', () => {
+    it('it should update a existing tool', (done) => {
+      chai
+        .request(server)
+        .put('/tools/1')
+        .send({ title: 'Updated' })
+        .then((res) => {
+          expect(res).to.have.status(204);
           done();
         });
       done();

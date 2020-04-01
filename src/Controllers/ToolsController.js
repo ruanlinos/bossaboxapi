@@ -41,6 +41,9 @@ module.exports = {
   async update(request, response) {
     const { id } = request.params;
     const data = request.body;
+    if (typeof id !== 'number') {
+      return response.status(400).send();
+    }
 
     try {
       const tool = await Tool.findByPk(id);
@@ -57,7 +60,9 @@ module.exports = {
 
   async delete(request, response) {
     const { id } = request.params;
-
+    if (typeof id !== 'number') {
+      return response.status(400).send();
+    }
     try {
       const tool = await Tool.findByPk(id);
 
