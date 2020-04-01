@@ -1,0 +1,16 @@
+version: "3.4"
+services:
+  database:
+    image: postgres:12.2
+    container_name: bossabox-database
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: bossabox
+      POSTGRES_DB: vuttr
+    ports:
+      - 5432:5432
+    networks:
+      - bossa-network
+networks:
+  bossa-network:
+    driver: bridge
