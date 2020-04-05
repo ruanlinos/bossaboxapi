@@ -13,14 +13,6 @@ module.exports = {
     },
   },
   production: {
-    dialect: 'postgres',
-    host: process.env.DATABASE_URL,
-    username: process.env.DB_PROD_USER,
-    password: process.env.DB_PROD_PASS,
-    database: process.env.DB_PROD_NAME,
-    define: {
-      timestamps: true,
-      underscored: true,
-    },
+    use_env_variable: 'DATABASE_URL',
   },
 };
