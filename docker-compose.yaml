@@ -1,7 +1,7 @@
 version: "3.4"
 services:
   server:
-    build: .
+    image: shootingtime/bossaboxapi:1.0
     container_name: bossabox-api
     volumes:
       - .:/usr/src/
@@ -25,7 +25,7 @@ services:
       - bossa-network
 
   migration:
-    image: bossaboxapi
+    image: shootingtime/bossaboxapi:1.0
     command: ["npm", "run", "migrate"]
     depends_on:
       - database
