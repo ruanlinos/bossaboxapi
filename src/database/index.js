@@ -5,7 +5,7 @@ const Tool = require('../models/Tool');
 
 const connection = process.env.NODE_ENV === 'development'
   ? new Sequelize(dbConfig.development)
-  : new Sequelize(dbConfig.production);
+  : new Sequelize(process.env.DATABASE_URL);
 
 Tool.init(connection);
 
