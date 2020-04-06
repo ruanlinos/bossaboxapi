@@ -50,26 +50,6 @@ module.exports = {
     }
   },
 
-  async update(request, response) {
-    const { id } = request.params;
-    const data = request.body;
-    if (typeof id !== 'number') {
-      return response.status(400).send();
-    }
-
-    try {
-      const tool = await Tool.findByPk(id);
-      if (!tool) {
-        return response.status(404).json({ error: 'tool not found! ' });
-      }
-      await Tool.update(data, { where: { id } });
-
-      return response.status(204).send();
-    } catch (error) {
-      return response.status(500);
-    }
-  },
-
   async delete(request, response) {
     const { id } = request.params;
     try {
