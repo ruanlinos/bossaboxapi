@@ -3,12 +3,10 @@ setup:
     - plan: heroku-postgresql
 build:
   docker:
-    web: ./Dockerfile
+    web: Dockerfile
   config:
     REQUIREMENTS_FILENAME: heroku.yml
 release:
   image: web
-  command:
-    - ./release.sh
 run:
-  web: nodemon src/index.js
+  web: node src/index.js
