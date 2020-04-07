@@ -1,16 +1,18 @@
-version: "3.4"
+version: '2.4'
 services:
-  server:
-    image: bossanode
+  api:
+    build: .
     container_name: bossabox-api
     volumes:
       - .:/usr/src/
     depends_on:
-      - migration
+      database:
+        condition: service_healthy
     ports:
-      - "3000:3000"
+      - '3000:3000'
     networks:
       - bossa-network
+    env_file: .env
 
   database:
     image: postgres:11.2-alpine
@@ -20,15 +22,21 @@ services:
       POSTGRES_USER: bossabox
       POSTGRES_DB: vuttr
     ports:
-      - "5432:5432"
+      - '5432:5432'
     networks:
       - bossa-network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   migration:
-    image: bossanode
-    command: ["npm", "run", "migrate"]
+    build: .
+    command: ['npm', 'run', 'migrate']
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     networks:
       - bossa-network
 

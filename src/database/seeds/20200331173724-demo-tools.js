@@ -2,6 +2,7 @@ const date = new Date();
 module.exports = {
   up: (queryInterface) => queryInterface.bulkInsert('tools', [
     {
+      id: 1,
       title: 'Notion',
       link: 'https://notion.so',
       description:
@@ -17,6 +18,7 @@ module.exports = {
       updated_at: date,
     },
     {
+      id: 2,
       title: 'json-server',
       link: 'https://github.com/typicode/json-server',
       description:
@@ -26,6 +28,7 @@ module.exports = {
       updated_at: date,
     },
     {
+      id: 3,
       title: 'fastify',
       link: 'https://www.fastify.io/',
       description:
