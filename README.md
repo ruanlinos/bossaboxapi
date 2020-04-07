@@ -1,8 +1,9 @@
-# Very Useful Tools to Remember
+# <div align="center">VUTTR</div>
+## <div align="center">Very Useful Tools to Remember</div>
 
-## A App that allow users to add, list and remove tools.
+### <div align="center">A App that allow users to add, list and remove tools.</div>
 
-### ⚡️ TECHNOLOGIES
+#### ⚡️ TECHNOLOGIES
 
 ---
 
@@ -22,7 +23,7 @@ For code formatter and padronization:
 - [Husky](https://github.com/typicode/husky)
 - [Lint-staged](https://github.com/okonet/lint-staged)
 
-### 💻 DEVELOPING
+#### 💻 DEVELOPING
 
 ---
 
