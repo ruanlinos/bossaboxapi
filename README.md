@@ -43,7 +43,7 @@ To run this applications, you need Git, Yarn, `Docker >= 17.12.0+` and `docker-c
 Next step you must clone this repository:
 
 ```bash
-    $ git clone https://github.com/ruanlinos/bossaboxapi
+    $ git clone https://github.com/ruanlinos/bossaboxapi.git
 ```
 
 Inside the foder project, just run:
@@ -51,12 +51,15 @@ Inside the foder project, just run:
 ```bash
     # First, we need to ensure that the database is up to date:
     $ docker-compose up migration
-
+    
+    # And now we can seed the database:
+    $ docker-compose up seed
+    
     # So, we can start the server:
     $ docker-compose up api
 
     # Otherwise, you can run the api server detached:
-    $ docker-compose up api -d
+    $ docker-compose up -d api
 ```
 
 Well done! all your changes will be automatically read by the docker.
