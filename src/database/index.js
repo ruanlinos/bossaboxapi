@@ -15,7 +15,13 @@ if (nodeEnv === 'development') {
   Tool.init(connection);
   module.exports = connection;
 } else {
-  const connection = new Sequelize(dbConfig.production);
+  const connection = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    define: {
+      timestamps: false,
+      underscored: true,
+    },
+  });
   Tool.init(connection);
   module.exports = connection;
 }
