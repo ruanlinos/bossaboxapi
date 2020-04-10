@@ -10,11 +10,13 @@ if (nodeEnv === 'development') {
   const connection = new Sequelize(dbConfig.development);
   Tool.init(connection);
   module.exports = connection;
-} else if (nodeEnv === 'test') {
+}
+if (nodeEnv === 'test') {
   const connection = new Sequelize(dbConfig.test);
   Tool.init(connection);
   module.exports = connection;
-} else if (nodeEnv === 'production') {
+}
+if (process.env.NODE_ENV === 'production') {
   const connection = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
     define: {
