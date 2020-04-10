@@ -17,6 +17,7 @@ This project was developed for the Bossabox Backend Challenge with the following
 - [Sequelize](https://github.com/sequelize/sequelize)
 - [Sequelize-cli](https://github.com/sequelize/cli)
 - [Swagger](https://swagger.io/)
+
 For code formatter and padronization:
 
 - [Eslint](https://github.com/eslint/eslint)
