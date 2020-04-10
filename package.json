@@ -9,34 +9,35 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "knex": "^0.20.13",
     "pg": "^8.0.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.5",
-    "swagger-ui-express": "^4.1.4",
-    "yamljs": "^0.3.0"
+    "swagger-ui-express": "^4.1.4"
   },
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "test": "mocha",
+    "dev": "nodemon -L --inspect src/index.js",
     "lint:js": "eslint . --ext .js,.jsx",
     "lint:js:fix": "npm run lint:js -- --fix",
-    "migrate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "build": "npm build ."
+    "seed": "npx sequelize-cli db:seed:all",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+    "test": "cross-env NODE_ENV=test jest",
+    "pretest": "cross-env NODE_ENV=test npm run migrate:reset"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "husky": "^4.2.3",
+    "jest": "^25.3.0",
     "lint-staged": "^10.0.10",
     "nodemon": "^2.0.2",
     "prettier": "2.0.2",
     "request": "^2.88.2",
-    "sequelize-cli": "^5.5.1"
+    "sequelize-cli": "^5.5.1",
+    "supertest": "^4.0.2"
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
@@ -48,5 +49,16 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "engines": {
+    "node": "13.12.0",
+    "npm": "6.14.4",
+    "yarn": "1.22.4"
   }
 }

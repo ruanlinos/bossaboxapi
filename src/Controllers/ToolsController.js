@@ -9,23 +9,25 @@ module.exports = {
     const { searchtag } = request.headers;
     try {
       const count = await Tool.count();
+
       if (searchtag === 'true' && q) {
         const tools = await Tool.findAll({
           where: { tags: { [Op.contains]: [q] } },
-          order: [['created_at', 'DESC']],
+          order: [['id', 'DESC']],
         });
         response.header('X-Total-Count', count);
-        return response.json(tools);
+        return response.status(200).json(tools);
       }
-      if (q && searchtag === 'false') {
+
+      if ((searchtag === 'false' && q) || (!searchtag && q)) {
         const query = await Tool.findAll({
-          where: { title: q },
-          order: [['created_at', 'DESC']],
+          where: { title: { [Op.iLike]: q } },
+          order: [['id', 'DESC']],
         });
         return response.status(200).json(query);
       }
 
-      const tools = await Tool.findAll({ order: [['created_at', 'DESC']] });
+      const tools = await Tool.findAll({ order: [['id', 'DESC']] });
       response.header('X-Total-Count', count);
       return response.status(200).json(tools);
     } catch (error) {
@@ -37,6 +39,7 @@ module.exports = {
     const {
       title, description, link, tags,
     } = request.body;
+
     try {
       const tool = await Tool.create({
         title,

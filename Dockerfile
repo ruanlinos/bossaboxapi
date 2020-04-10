@@ -5,9 +5,8 @@ WORKDIR /usr/src
 COPY package.json /usr/src/
 COPY .env /usr/src/
 COPY . /usr/src/
-RUN npm install
-RUN npm install -g nodemon
+
+RUN yarn install
+RUN yarn global add nodemon
 
 EXPOSE 3000
-
-CMD nodemon -L src/index.js

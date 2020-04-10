@@ -1,4 +1,5 @@
 # <div align="center">VUTTR</div>
+
 ## <div align="center">Very Useful Tools to Remember</div>
 
 ### <div align="center">A App that allow users to add, list and remove tools.</div>
@@ -27,7 +28,7 @@ For code formatter and padronization:
 
 ---
 
-To run this applications, you need Git, `Docker >= 17.12.0+` and `docker-compose`
+To run this applications, you need Git, Yarn, `Docker >= 17.12.0+` and `docker-compose`
 
 ```bash
     # To see a version of docker

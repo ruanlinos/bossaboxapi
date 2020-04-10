@@ -1,4 +1,3 @@
-const date = new Date();
 module.exports = {
   up: (queryInterface) => queryInterface.bulkInsert('tools', [
     {
@@ -14,8 +13,6 @@ module.exports = {
         'writing',
         'calendar',
       ],
-      created_at: date,
-      updated_at: date,
     },
     {
       id: 2,
@@ -24,8 +21,6 @@ module.exports = {
       description:
           'Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.',
       tags: ['api', 'json', 'schema', 'node', 'github', 'rest'],
-      created_at: date,
-      updated_at: date,
     },
     {
       id: 3,
@@ -34,8 +29,6 @@ module.exports = {
       description:
           'Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.',
       tags: ['web', 'framework', 'node', 'http2', 'https', 'localhost'],
-      created_at: date,
-      updated_at: date,
     },
   ]),
 
