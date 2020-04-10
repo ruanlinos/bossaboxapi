@@ -3,7 +3,7 @@
 ## <div align="center">Very Useful Tools to Remember</div>
 
 ### <div align="center">A App that allow users to add, list and remove tools.</div>
-
+#### <div align="center">[Visit this api here](https://bossaboxapi.herokuapp.com/docs/).</div>
 #### ⚡️ TECHNOLOGIES
 
 ---
@@ -16,7 +16,7 @@ This project was developed for the Bossabox Backend Challenge with the following
 - [Docker](https://www.docker.com/)
 - [Sequelize](https://github.com/sequelize/sequelize)
 - [Sequelize-cli](https://github.com/sequelize/cli)
-
+- [Swagger](https://swagger.io/)
 For code formatter and padronization:
 
 - [Eslint](https://github.com/eslint/eslint)
